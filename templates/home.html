@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/home.css') }}">
+    <meta charset="UTF-8">
+    <title>Auto-generation VISA documents </title>
+</head>
+
+<body>
+    <h1>Please choose the documents which you need</h1>
+    <form action="/docmaker" method="post">
+        <label for="doctype">Documents:</label>
+        <select id="doctype" name="doctypes">
+            <option value="proofofparticipationinenglishcourses">Proof of participation in english courses</option>
+            <option value="confirmationofunconditionaladmission">Confirmation of unconditional admission</option>
+            <option value="extensionletter">Extension Letter</option>
+            <option value="latearrival">Late Arrival</option>
+            <option value="blockedaccount">Proof of blocked account</option>
+            <option value="onlinesemesterparticipation">Online Semester participation</option>
+            <option value="presenceletter">Presence Letter</option>
+            <option value="proofoflanguagerequirements">Proof of Language Requirements</option>
+        </select>
+        <input type="submit" value="Submit">
+    </form>
+</body>
+
+</html>
