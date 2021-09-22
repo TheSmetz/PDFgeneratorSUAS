@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/home.css') }}">
     <meta charset="UTF-8">
     <title>Blocked account document </title>
 </head>
@@ -9,24 +10,18 @@
 <body>
     <h1>Blocked account document </h1>
     <h3>Please provide the following information in order to generate the document which you need:</h3>
+    <form action="/blockedaccount" method="post">
+        <label for="semesterattr">Choose a semester:</label>
+        <select id="semestera" name="semesters">
+            <option value="winter">Winter</option>
+            <option value="summer">Summer</option>
+        </select>
 
-    <label for="semesterattr">Choose a semester:</label>
-    <select id="semestera" name="semestera">
-        <option value="winter">Winter</option>
-        <option value="summer">Summer</option>
-    </select>
+        <label for="yearsattr">Enter the years: (for instance: 2021/22)</label>
+        <input type="text" name="yearsattr" value="" required> <br><br>
 
-    <label for="yearsattr">Enter the years: (for instance: 2021/22)</label>
-    <input type="text" name="yearsattr" value="" required> <br><br>
-
-
-    <input type="submit" value="Submit">
+        <input type="submit" value="Submit" >
     </form>
 </body>
 
 </html>
-
-<!-- 
-Semesterattr (Winter/Summer)
-yearsattr (2020/2021 …)
-Startingdate (1st October 2020 +  -->

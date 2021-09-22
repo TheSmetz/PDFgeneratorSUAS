@@ -2,46 +2,37 @@
 <html lang="en">
 
 <head>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/home.css') }}">
     <meta charset="UTF-8">
-    <title>Proof of participation in english courses </title>
+    <title>Proof of Language Requirements </title>
 </head>
 
 <body>
-    <h1>Please provide the following information in order to generate the document which you need:</h1>
-    
-    <label for="semester">Choose your gender:</label>
-    <select id="genderattr" name="semesters">
-        <option value="mr">Mr.</option>
-        <option value="ms">Ms.</option>
-    </select>
-    <label for="name">Enter Name: </label>
-    <input type="text" name="name" value="" required> <br><br>
-    <label for="surname">Enter Surname: </label>
-    <input type="text" name="surname" value="" required> <br><br>
+    <h1>Proof of Language Requirements</h1>
+    <h3>Please provide the following information in order to generate the document which you need:</h3>
+    <form action="/proofoflanguagerequirements" method="post">
+        <label for="name">Enter Name: </label>
+        <input type="text" name="name" value="" required>
 
-    <label for="idstudentattribute">Enter your Student ID: </label>
-    <input type="number" name="name" value="" required> <br><br>
+        <label for="surname">Surname: </label>
+        <input type="text" name="surname" value="" required> <br><br>
 
-    <label for="semestera">Choose a semester:</label>
-    <select id="semestera" name="semestera">
-        <option value="winter">Winter</option>
-        <option value="summer">Summer</option>
-    </select>
+        <label for="yearsattr">Enter the years: (for instance: 2021/2022)</label>
+        <input type="text" name="yearsattr" value="" required> <br><br>
 
-    <label for="yearsattribute">Enter the years: (for instance: 2021/22)</label>
-    <input type="text" name="yearsattribute" value="" required> <br><br>
+        <label for="matnum">Matriculation Number: </label>
+        <input type="text" name="matnum" value="" required> <br><br>
 
+        <label for="degreetype">Choose your Degree Type:</label>
+        <select id="degreetypea" name="degreetypes">
+            <option value="bsc">B.Sc.</option>
+            <option value="msc">M.Sc.</option>
+        </select>
+        <label for="degreefield">Degree Field: (for instance: Business Administration)</label>
+        <input type="text" name="degreefield" value="" required> <br><br>
 
-    <input type="submit" value="Submit">
+        <input type="submit" value="Submit">
     </form>
 </body>
 
 </html>
-
-<!-- Proof of participation in english courses 
-dateattribute
-- Name attribute(name+surname)
-idstudentattribute (number)
-Gender attribute (Ms. / Mr.)
-Semesterattribute (Winter/Summer)
-yearsattribute (2020/2021 …) -->
