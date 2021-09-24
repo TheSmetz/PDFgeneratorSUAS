@@ -3,46 +3,48 @@
 
 <head>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/home.css') }}">
+    <link rel="stylesheet" media="screen" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
     <meta charset="UTF-8">
-    <title>Proof of participation in english courses </title>
+    <title>Proof of participation in english courses</title>
 </head>
 
 <body>
-    <h1>Proof of participation in english courses</h1>
-    <h3>Please provide the following information in order to generate the document which you need:</h3>
-    <form action="/proofofparticipationinenglishcourses" method="post">
-        <label for="gender">Choose your gender:</label>
-        <select id="genderattr" name="genderattrs">
-            <option value="mr">Mr.</option>
-            <option value="ms">Ms.</option>
-        </select>
-        <label for="name">Enter Name: </label>
-        <input type="text" name="name" value="" required>
-        <label for="surname">Enter Surname: </label>
-        <input type="text" name="surname" value="" required> <br><br>
+    <h2>Proof of participation in english courses</h2>
+    <h4>Please provide the following information correctly in order to generate the document which you need:</h4>
+    <div class="container"><br>
+        <div class="row align-items-center justify-content-center">
+            <div class="col-md-4">
+                <form action="/proofofparticipationinenglishcourses" method="post">
+                    <label for="gender"> Gender:</label>
+                    <select id="genderattr" name="genderattrs">
+                        <option value="mr">Mr.</option>
+                        <option value="ms">Ms.</option>
+                    </select> <br>
+                    <label for="name">Name: </label><br>
+                    <input type="text" name="name" value="" required><br>
+                    <label for="surname">Surname: </label><br>
+                    <input type="text" name="surname" value="" required> <br>
 
-        <label for="idstudentattribute">Enter your Student ID: </label>
-        <input type="number" name="idstudentattribute" value="" required> <br><br>
+                    <label for="idstudentattribute">Student ID: </label><br>
+                    <input type="number" name="idstudentattribute" value="" required> <br>
+                    <label for="semestera">Semester:</label><br>
+                    <select id="semestera" name="semesters">
+                        <option value="winter">Winter</option>
+                        <option value="summer">Summer</option>
+                    </select><br>
 
-        <label for="semestera">Choose a semester:</label>
-        <select id="semestera" name="semesters">
-            <option value="winter">Winter</option>
-            <option value="summer">Summer</option>
-        </select>
-
-        <label for="yearsattribute">Enter the years: (for instance: 2021/22)</label>
-        <input type="text" name="yearsattribute" value="" required> <br><br>
-
-
-        <input type="submit" value="Submit">
-    </form>
+                    <label for="yearsattribute">Enter the years: (e.g. 2021/22)</label><br>
+                    <input type="text" name="yearsattribute" value="" required> <br><br>
+                    <div class="wrapper">
+                        <input type="submit" value="Submit" class="btn btn-success">
+                    </div>
+                </form>
+            </div>
+            <br>
+        </div>
+        <br>
+    </div>
 </body>
-</html>
 
-<!-- Proof of participation in english courses 
-dateattribute
-- Name attribute(name+surname)
-idstudentattribute (number)
-Gender attribute (Ms. / Mr.)
-Semesterattribute (Winter/Summer)
-yearsattribute (2020/2021 …) -->
+</html>

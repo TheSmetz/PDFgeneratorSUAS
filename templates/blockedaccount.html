@@ -3,25 +3,34 @@
 
 <head>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/home.css') }}">
+    <link rel="stylesheet" media="screen" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
     <meta charset="UTF-8">
     <title>Blocked account document </title>
 </head>
 
 <body>
-    <h1>Blocked account document </h1>
-    <h3>Please provide the following information in order to generate the document which you need:</h3>
-    <form action="/blockedaccount" method="post">
-        <label for="semesterattr">Choose a semester:</label>
-        <select id="semestera" name="semesters">
-            <option value="winter">Winter</option>
-            <option value="summer">Summer</option>
-        </select>
+    <h2>Blocked account document </h2>
+    <h4>Please provide the following information correctly in order to generate the document which you need:</h4>
+    <div class="container"><br>
+        <div class="row align-items-center justify-content-center">
+            <div class="col-md-4">
 
-        <label for="yearsattr">Enter the years: (for instance: 2021/22)</label>
-        <input type="text" name="yearsattr" value="" required> <br><br>
+                <form action="/blockedaccount" method="post">
+                    <label for="semesterattr">Choose a semester:</label>
+                    <select id="semestera" name="semesters">
+                        <option value="winter">Winter</option>
+                        <option value="summer">Summer</option>
+                    </select><br>
 
-        <input type="submit" value="Submit" >
-    </form>
+                    <label for="yearsattr">Enter the years: (for instance: 2021/22)</label>
+                    <input type="text" name="yearsattr" value="" required> <br><br>
+
+                    <input type="submit" value="Submit" class="btn btn-success">
+                </form>
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>

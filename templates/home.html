@@ -1,28 +1,46 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/home.css') }}">
-    <meta charset="UTF-8">
-    <title>Auto-generation VISA documents </title>
+    <title>Auto-generation SUAS documents</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/home.css') }}">
+    <link rel="stylesheet" media="screen" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 </head>
 
 <body>
-    <h1>Please choose the documents which you need</h1>
-    <form action="/docmaker" method="post">
-        <label for="doctype">Documents:</label>
-        <select id="doctype" name="doctypes">
-            <option value="proofofparticipationinenglishcourses">Proof of participation in english courses</option>
-            <option value="confirmationofunconditionaladmission">Confirmation of unconditional admission</option>
-            <option value="extensionletter">Extension Letter</option>
-            <option value="latearrival">Late Arrival</option>
-            <option value="blockedaccount">Proof of blocked account</option>
-            <option value="onlinesemesterparticipation">Online Semester participation</option>
-            <option value="presenceletter">Presence Letter</option>
-            <option value="proofoflanguagerequirements">Proof of Language Requirements</option>
-        </select>
-        <input type="submit" value="Submit">
-    </form>
+
+    <div class="container"><br>
+        <h2>Please choose the document which you need</h2>
+    </div>
+
+    <div class="container"><br>
+        <div class="row align-items-center justify-content-center">
+            <div class="col-md-4">
+                <form action="/docmaker" method="post">
+                    <label for="doctype">Documents:</label>
+                    <select id="doctype" name="doctypes">
+                        <option value="proofofparticipationinenglishcourses">Proof of participation in english courses
+                        </option>
+                        <option value="confirmationofunconditionaladmission">Confirmation of unconditional admission
+                        </option>
+                        <option value="extensionletter">Extension Letter</option>
+                        <option value="latearrival">Late Arrival</option>
+                        <option value="blockedaccount">Proof of blocked account</option>
+                        <option value="onlinesemesterparticipation">Online Semester participation</option>
+                        <option value="presenceletter">Presence Letter</option>
+                        <option value="proofoflanguagerequirements">Proof of Language Requirements</option>
+                    </select> <br> <br>
+                    <div class="wrapper">
+                        <input type="submit" value="Submit" class="btn btn-success">
+                    </div>
+                </form>
+                <br>
+            </div>
+            <br>
+        </div>
+    </div>
 </body>
 
 </html>

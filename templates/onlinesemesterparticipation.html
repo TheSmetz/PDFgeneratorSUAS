@@ -3,41 +3,54 @@
 
 <head>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/home.css') }}">
+    <link rel="stylesheet" media="screen" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
     <meta charset="UTF-8">
     <title>Document for Online Semester Participation </title>
 </head>
 
 <body>
-    <h1>Online Semester Participation</h1>
-    <h3>Please provide the following information in order to generate the document which you need:</h3>
-    <form action="/onlinesemesterparticipation" method="post">
-        <label for="gender">Choose your gender:</label>
-        <select id="genderattr" name="genderattrs">
-            <option value="mr">Mr.</option>
-            <option value="ms">Ms.</option>
-        </select>
-        <label for="name">Enter Name: </label>
-        <input type="text" name="name" value="" required>
+    <h2>Online Semester Participation</h2>
+    <h4>Please provide the following information correctly in order to generate the document which you need:</h4>
+    <div class="container"><br>
+        <div class="row align-items-center justify-content-center">
+            <div class="col-md-4">
+                <form action="/onlinesemesterparticipation" method="post">
+                    <label for="gender">Choose your gender:</label>
+                    <select id="genderattr" name="genderattrs">
+                            <option value="mr">Mr.</option>
+                            <option value="ms">Ms.</option>
+                        </select><br>
+                    <label for="name">Name: </label><br>
+                    <input type="text" name="name" value="" required><br>
 
-        <label for="surname">Surname: </label>
-        <input type="text" name="surname" value="" required> <br><br>
+                    <label for="surname">Surname: </label><br>
+                    <input type="text" name="surname" value="" required> <br>
 
-        <label for="matricnumb"> Matriculation Number: </label>
-        <input type="text" name="matricnumb" value="" required> 
+                    <label for="matricnumb"> Matriculation Number: </label><br>
+                    <input type="text" name="matricnumb" value="" required><br>
 
-        <label for="numonlinecourse"> Number Online Course: </label>
-        <input type="text" name="numonlinecourse" value="" required> <br><br>
+                    <label for="numonlinecourse"> Number Online Course: </label><br>
+                    <input type="text" name="numonlinecourse" value="" required> <br>
 
-        <label for="semester">Choose a semester:</label>
-        <select id="semestera" name="semesters">
-            <option value="winter">Winter</option>
-            <option value="summer">Summer</option>
-        </select>
+                    <label for="semester">Choose a semester:</label><br>
+                    <select id="semestera" name="semesters">
+                            <option value="winter">Winter</option>
+                            <option value="summer">Summer</option>
+                        </select><br>
 
-        <label for="yearsattribute">Enter the years: (for instance: 2021)</label>
-        <input type="text" name="yearsattribute" value="" required> <br><br>
-
-        <input type="submit" value="Submit">
-    </form>
+                    <label for="yearsattribute">Enter the years: <br>(e.g. 2021)</label><br>
+                    <input type="text" name="yearsattribute" value="" required> <br><br>
+                    <div class="wrapper">
+                        <input type="submit" value="Submit" class="btn btn-success">
+                    </div>
+                </form>
+            </div>
+            <br>
+        </div>
+        <br>
+    </div>
+    </div>
 </body>
+
 </html>

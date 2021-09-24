@@ -3,62 +3,61 @@
 
 <head>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/home.css') }}">
+    <link rel="stylesheet" media="screen" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
     <meta charset="UTF-8">
     <title>Confirmation of Unconditional Admission </title>
 </head>
 
 <body>
-    <h1>Document for Late Arrival</h1>
-    <h3>Please provide the following information in order to generate the document which you need:</h3>
-    <form action="/latearrival" method="post">
-        <label for="gender">Choose your gender:</label>
-        <select id="genderattr" name="genderattrs">
-            <option value="mr">Mr.</option>
-            <option value="ms">Ms.</option>
-        </select>
-        <label for="name">Enter Name: </label>
-        <input type="text" name="name" value="" required>
+    <h2>Document for Late Arrival</h2>
+    <h4>Please provide the following information correctly in order to generate the document which you need:</h4>
+    <div class="container"><br>
+        <div class="row align-items-center justify-content-center">
+            <div class="col-md-4">
+                <form action="/latearrival" method="post">
+                    <label for="gender">Choose your gender:</label>
+                    <select id="genderattr" name="genderattrs">
+                        <option value="mr">Mr.</option>
+                        <option value="ms">Ms.</option>
+                    </select> <br>
+                    <label for="name">Enter Name: </label> <br>
+                    <input type="text" name="name" value="" required> <br>
 
-        <label for="surname">Surname: </label>
-        <input type="text" name="surname" value="" required> <br><br>
+                    <label for="surname">Surname: </label> <br>
+                    <input type="text" name="surname" value="" required> <br>
 
-        <label for="countryattribute"> Country : </label>
-        <input type="text" name="countryattribute" value="" required> 
+                    <label for="countryattribute"> Country : </label> <br>
+                    <input type="text" name="countryattribute" value="" required> <br>
 
-        <label for="cityattribute"> Enter your City : </label>
-        <input type="text" name="cityattribute" value="" required>
-        
-        <label for="zipcode"> Zipcode : </label>
-        <input type="text" name="zipcode" value="" required> <br><br>
+                    <label for="cityattribute"> City : </label> <br>
+                    <input type="text" name="cityattribute" value="" required> <br>
+
+                    <label for="zipcode"> Zipcode : </label> <br>
+                    <input type="text" name="zipcode" value="" required> <br>
 
 
-        <label for="address1"> Enter your address 1: </label>
-        <input type="text" name="address1" value="" required>
-        <label for="address2"> Address 2: </label>
-        <input type="text" name="address2" value="">
-        <label for="numberaddress"> Number of Address: </label>
-        <input type="number" name="numberaddress" value=""> <br><br>
+                    <label for="address1"> Address 1: </label> <br>
+                    <input type="text" name="address1" value="" required> <br>
+                    <label for="address2"> Address 2: </label> <br>
+                    <input type="text" name="address2" value=""> <br>
+                    <label for="numberaddress"> Number of Address: </label> <br>
+                    <input type="number" name="numberaddress" value=""> <br>
 
-        <label for="studentid">Student ID: </label>
-        <input type="number" name="studentid" value="" required>
-        
-        <label for="degreefield">Degree Field: (for instance: Business Administration)</label>
-        <input type="text" name="degreefield" value="" required> <br><br>
+                    <label for="studentid">Student ID: </label> <br>
+                    <input type="number" name="studentid" value="" required> <br>
 
-        <input type="submit" value="Submit">
-    </form>
+                    <label for="degreefield">Degree Field: <br>(e.g.: Business Administration)</label> <br>
+                    <input type="text" name="degreefield" value="" required> <br><br>
+                    <div class="wrapper">
+                        <input type="submit" value="Submit" class="btn btn-success">
+                    </div>
+                </form>
+            </div>
+            <br>
+        </div>
+        <br>
+    </div>
 </body>
 
 </html>
-
-<!-- 
--Nameattr (name+surn)
--Address1Attribute
--Gender attribute (Ms. / Mr.)
--NumberAddress
--address2attribute
--Zipcode
--cityattribute
--countryattribute (CAPS LOCK) 
-studentid
--->
