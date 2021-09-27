@@ -1,12 +1,8 @@
-import re
 from flask import Flask, render_template, send_file, redirect, request
-from flask.helpers import make_response
 from docx import Document
 from datetime import date
 
-# TODO: FIX THE PROBLEM WITH DOC+
 # TODO: ASK FOR OTHER DOCUMENTS
-# TODO: BEAUTIFY UI
 
 app = Flask(__name__)
 global doc
