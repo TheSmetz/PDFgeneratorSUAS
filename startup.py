@@ -9,7 +9,6 @@ import os
 # TODO: ADD THE NEW DOCUMENT TO THE LIST
 
 app = Flask(__name__)
-global doc
 today = date.today()
 
 
@@ -17,13 +16,9 @@ today = date.today()
 def home():
     return render_template('home.html')
 
-
 @app.route('/docmaker', methods=['POST'])
 def pdf_template():
-    global doc
     doctype = request.form.get('doctypes')
-    docpath = './templates/documents/'+doctype+'.docx'
-    doc = Document(docpath)
     if doctype == 'proofofparticipationinenglishcourses':
         return redirect('/proofofparticipationinenglishcourses')
     elif doctype == 'confirmationofunconditionaladmission':
@@ -45,7 +40,7 @@ def pdf_template():
 
 @app.route('/proofofparticipationinenglishcourses', methods=['GET', 'POST'])
 def proofofparticipationinenglishcourses():
-    global doc
+    doc = Document('./templates/documents/proofofparticipationinenglishcourses.docx')
     if request.method == 'GET':
         return render_template('proofofparticipationinenglishcourses.html')
     else:
@@ -84,7 +79,7 @@ def proofofparticipationinenglishcourses():
 
 @app.route('/confirmationofunconditionaladmission', methods=['GET', 'POST'])
 def confirmationofunconditionaladmission():
-    global doc
+    doc = Document('./templates/documents/confirmationofunconditionaladmission.docx')
     if request.method == 'GET':
         return render_template('confirmationofunconditionaladmission.html')
     else:
@@ -156,7 +151,7 @@ def confirmationofunconditionaladmission():
 
 @app.route('/extensionletter', methods=['GET', 'POST'])
 def extensionletter():
-    global doc
+    doc = Document('./templates/documents/extensionletter.docx')
     if request.method == 'GET':
         return render_template('extensionletter.html')
     else:
@@ -190,7 +185,7 @@ def extensionletter():
 
 @app.route('/latearrival', methods=['GET', 'POST'])
 def latearrival():
-    global doc
+    doc = Document('./templates/documents/latearrival.docx')
     if request.method == 'GET':
         return render_template('latearrival.html')
     else:
@@ -250,7 +245,7 @@ def latearrival():
 
 @app.route('/blockedaccount', methods=['GET', 'POST'])
 def blockedaccount():
-    global doc
+    doc = Document('./templates/documents/blockedaccount.docx')
     if request.method == 'GET':
         return render_template('blockedaccount.html')
     else:
@@ -283,7 +278,7 @@ def blockedaccount():
 
 @app.route('/onlinesemesterparticipation', methods=['GET', 'POST'])
 def onlinesemesterparticipation():
-    global doc
+    doc = Document('./templates/documents/onlinesemesterparticipation.docx')
     if request.method == 'GET':
         return render_template('onlinesemesterparticipation.html')
     else:
@@ -327,7 +322,7 @@ def onlinesemesterparticipation():
 
 @app.route('/presenceletter', methods=['GET', 'POST'])
 def presenceletter():
-    global doc
+    doc = Document('./templates/documents/presenceletter.docx')
     if request.method == 'GET':
         return render_template('presenceletter.html')
     else:
@@ -357,7 +352,7 @@ def presenceletter():
 
 @app.route('/proofoflanguagerequirements', methods=['GET', 'POST'])
 def proofoflanguagerequirements():
-    global doc
+    doc = Document('./templates/documents/proofoflanguagerequirements.docx')
     if request.method == 'GET':
         return render_template('proofoflanguagerequirements.html')
     else:
