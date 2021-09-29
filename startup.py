@@ -1,8 +1,12 @@
 from flask import Flask, render_template, send_file, redirect, request
 from docx import Document
 from datetime import date
+import os
 
 # TODO: ASK FOR OTHER DOCUMENTS
+# TODO: MODIFY ALL THE DOCUMENTS ADDING THE DATA (DEAR NAME SURNAME)
+# TODO: FIND A HOST PLAN
+# TODO: ADD THE NEW DOCUMENT TO THE LIST
 
 app = Flask(__name__)
 global doc
@@ -12,6 +16,7 @@ today = date.today()
 @app.route('/')
 def home():
     return render_template('home.html')
+
 
 @app.route('/docmaker', methods=['POST'])
 def pdf_template():
