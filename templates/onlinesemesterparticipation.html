@@ -5,6 +5,7 @@
     <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/home.css') }}">
     <link rel="stylesheet" media="screen" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
     <meta charset="UTF-8">
     <title>SUAS - Online Semester Participation Document</title>
 </head>
@@ -45,13 +46,13 @@
                     <label for="numonlinecourse"> Number Online Course: </label><br>
                     <input type="text" name="numonlinecourse" value="" required> <br>
 
-                    <label for="semester">Choose a semester:</label><br>
+                    <label for="semester">Semester:</label><br>
                     <select id="semestera" name="semesters">
                             <option value="winter">Winter</option>
                             <option value="summer">Summer</option>
                         </select><br>
 
-                    <label for="yearsattribute">Enter the years: <br>(e.g. 2021)</label><br>
+                    <label for="yearsattribute">Year: <br>(e.g. 2021)</label><br>
                     <input type="text" name="yearsattribute" value="" required> <br><br>
                     <div class="wrapper">
                         <input type="submit" value="Submit" class="btn btn-success">

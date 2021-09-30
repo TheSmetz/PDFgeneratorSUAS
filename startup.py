@@ -1,14 +1,8 @@
 from flask import Flask, render_template, send_file, redirect, request
 from docx import Document
 import time
-import os
 
-# TODO: ASK FOR OTHER DOCUMENTS
 # TODO: MODIFY ALL THE DOCUMENTS ADDING THE DATA (DEAR NAME SURNAME)
-# TODO: FIND A HOST PLAN
-# TODO: ADD THE NEW DOCUMENT TO THE LIST
-# TODO: change file output name
-# TODO: Icon
 
 app = Flask(__name__)
 
@@ -70,7 +64,7 @@ def proofofparticipationinenglishcourses():
                     text = text.replace('dateattribute', date)
                     inline[i].text = text
                 if 'semesterattribute' in text:
-                    text = text.replace('semesterattribute', semester)
+                    text = text.replace('semesterattribute', semester.capitalize())
                     inline[i].text = text
                 if 'yearsattribute' in text:
                     text = text.replace('yearsattribute', years)
@@ -81,7 +75,7 @@ def proofofparticipationinenglishcourses():
                 if 'idstudentattribute' in text:
                     text = text.replace('idstudentattribute', studentID)
                     inline[i].text = text
-        doc.save('output.docx')
+        doc.save('document.docx')
         return redirect('/download')
 
 
@@ -153,7 +147,7 @@ def confirmationofunconditionaladmission():
                         degreetype = 'M.Sc.'
                     text = text.replace('type', degreetype)
                     inline[i].text = text
-        doc.save('output.docx')
+        doc.save('document.docx')
         return redirect('/download')
 
 
@@ -187,7 +181,7 @@ def extensionletter():
                 if 'yearsattr' in text:
                     text = text.replace('yearsattr', years)
                     inline[i].text = text
-        doc.save('output.docx')
+        doc.save('document.docx')
         return redirect('/download')
 
 
@@ -247,7 +241,7 @@ def latearrival():
                     text = text.replace(
                         'degreefield', degreefield.capitalize())
                     inline[i].text = text
-        doc.save('output.docx')
+        doc.save('document.docx')
         return redirect('/download')
 
 
@@ -280,7 +274,7 @@ def blockedaccount():
                 if 'yearsattr' in text:
                     text = text.replace('yearsattr', years)
                     inline[i].text = text
-        doc.save('output.docx')
+        doc.save('document.docx')
         return redirect('/download')
 
 
@@ -324,7 +318,7 @@ def onlinesemesterparticipation():
                     text = text.replace(
                         'yearatt', year)
                     inline[i].text = text
-        doc.save('output.docx')
+        doc.save('document.docx')
         return redirect('/download')
 
 
@@ -342,19 +336,19 @@ def presenceletter():
             inline = p.runs
             for i in range(len(inline)):
                 text = inline[i].text
-                if 'nameattribute' in text:
-                    text = text.replace('nameattribute', name)
+                if 'nameattr' in text:
+                    text = text.replace('nameattr', name)
                     inline[i].text = text
                 if 'dateattribute' in text:
                     text = text.replace('dateattribute', date)
                     inline[i].text = text
-                if 'semesterattr' in text:
-                    text = text.replace('semesterattr', semester.capitalize())
+                if 'semesterattribute' in text:
+                    text = text.replace('semesterattribute', semester.capitalize())
                     inline[i].text = text
                 if 'yearsattr' in text:
                     text = text.replace('yearsattr', years)
                     inline[i].text = text
-        doc.save('output.docx')
+        doc.save('document.docx')
         return redirect('/download')
 
 
@@ -397,7 +391,7 @@ def proofoflanguagerequirements():
                         degreetype = 'M.Sc.'
                     text = text.replace('tipolaurea', degreetype)
                     inline[i].text = text
-        doc.save('output.docx')
+        doc.save('document.docx')
         return redirect('/download')
 
 # #Proof of attendance of solely virtual lectures in a semester
@@ -431,7 +425,7 @@ def virtuallecturessemester():
                 if 'yearattr' in text:
                     text = text.replace('yearattr', years)
                     inline[i].text = text
-        doc.save('output.docx')
+        doc.save('document.docx')
         return redirect('/download')
 
 # #Proof of attendance of solely virtual lectures until entry to germany
@@ -462,10 +456,10 @@ def virtuallectures():
                 if 'semesterattr' in text:
                     text = text.replace('semesterattr', semester.capitalize())
                     inline[i].text = text
-                if 'yearsattr' in text:
-                    text = text.replace('yearsattr', years)
+                if 'yearattr' in text:
+                    text = text.replace('yearattr', years)
                     inline[i].text = text
-        doc.save('output.docx')
+        doc.save('document.docx')
         return redirect('/download')
 
 # #Estimated Living Expenses
@@ -487,13 +481,13 @@ def estimatedlivingexpenses():
                 if 'dateattribute' in text:
                     text = text.replace('dateattribute', date)
                     inline[i].text = text
-        doc.save('output.docx')
+        doc.save('document.docx')
         return redirect('/download')
 
 
 @app.route('/download')
 def downloadFile():
-    return send_file('./output.docx', as_attachment=True)
+    return send_file('./document.docx', as_attachment=True)
 
 
 if __name__ == '__main__':

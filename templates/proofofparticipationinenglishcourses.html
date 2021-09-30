@@ -5,6 +5,7 @@
     <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/home.css') }}">
     <link rel="stylesheet" media="screen" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
     <meta charset="UTF-8">
     <title>SUAS - Proof of participation in english courses</title>
 </head>
@@ -46,7 +47,7 @@
                         <option value="summer">Summer</option>
                     </select><br>
 
-                    <label for="yearsattribute">Enter the years: (e.g. 2021/22)</label><br>
+                    <label for="yearsattribute">Years: (e.g. 2021/22)</label><br>
                     <input type="text" name="yearsattribute" value="" required> <br><br>
                     <div class="wrapper">
                         <input type="submit" value="Submit" class="btn btn-success">

@@ -5,8 +5,10 @@
     <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/home.css') }}">
     <link rel="stylesheet" media="screen" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
     <meta charset="UTF-8">
     <title>SUAS - Blocked account document </title>
+    
 </head>
 
 <body>
@@ -36,7 +38,7 @@
                         <option value="summer">Summer</option>
                     </select><br>
 
-                    <label for="yearsattr">Enter the years: (for instance: 2021/22)</label>
+                    <label for="yearsattr">Years: (for instance: 2021/22)</label>
                     <input type="text" name="yearsattr" value="" required> <br><br>
 
                     <input type="submit" value="Submit" class="btn btn-success">
