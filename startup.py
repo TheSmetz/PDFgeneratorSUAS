@@ -1,20 +1,22 @@
 from flask import Flask, render_template, send_file, redirect, request
 from docx import Document
-from datetime import date
+import time
 import os
 
 # TODO: ASK FOR OTHER DOCUMENTS
 # TODO: MODIFY ALL THE DOCUMENTS ADDING THE DATA (DEAR NAME SURNAME)
 # TODO: FIND A HOST PLAN
 # TODO: ADD THE NEW DOCUMENT TO THE LIST
+# TODO: change file output name
+# TODO: Icon
 
 app = Flask(__name__)
-today = date.today()
 
 
 @app.route('/')
 def home():
     return render_template('home.html')
+
 
 @app.route('/docmaker', methods=['POST'])
 def pdf_template():
@@ -35,18 +37,25 @@ def pdf_template():
         return redirect('/presenceletter')
     elif doctype == 'proofoflanguagerequirements':
         return redirect('/proofoflanguagerequirements')
+    elif doctype == 'virtuallecturesgermany':
+        return redirect('/virtuallecturesgermany')
+    elif doctype == 'estimatedlivingexpenses':
+        return redirect('/estimatedlivingexpenses')
+    elif doctype == 'virtuallecturessemester':
+        return redirect('/virtuallecturessemester')
     return "Something's wrong"
 
 
 @app.route('/proofofparticipationinenglishcourses', methods=['GET', 'POST'])
 def proofofparticipationinenglishcourses():
-    doc = Document('./templates/documents/proofofparticipationinenglishcourses.docx')
+    doc = Document(
+        './templates/documents/proofofparticipationinenglishcourses.docx')
     if request.method == 'GET':
         return render_template('proofofparticipationinenglishcourses.html')
     else:
         gender = request.form.get('genderattrs')
         name = request.form.get('name') + " " + request.form.get('surname')
-        date = today.strftime("%d %B %Y")
+        date = time.strftime("%d %B %Y")
         years = request.form.get('yearsattribute')
         studentID = request.form.get('idstudentattribute')
         semester = request.form.get('semesters')
@@ -67,7 +76,6 @@ def proofofparticipationinenglishcourses():
                     text = text.replace('yearsattribute', years)
                     inline[i].text = text
                 if 'genderattribute' in text:
-                    print(gender.capitalize())
                     text = text.replace('genderattribute', gender.capitalize())
                     inline[i].text = text
                 if 'idstudentattribute' in text:
@@ -79,7 +87,8 @@ def proofofparticipationinenglishcourses():
 
 @app.route('/confirmationofunconditionaladmission', methods=['GET', 'POST'])
 def confirmationofunconditionaladmission():
-    doc = Document('./templates/documents/confirmationofunconditionaladmission.docx')
+    doc = Document(
+        './templates/documents/confirmationofunconditionaladmission.docx')
     if request.method == 'GET':
         return render_template('confirmationofunconditionaladmission.html')
     else:
@@ -91,7 +100,7 @@ def confirmationofunconditionaladmission():
         address1 = request.form.get('address1')
         address2 = request.form.get('address2')
         number_address = request.form.get('numberaddress')
-        date = today.strftime("%d %B %Y")
+        date = time.strftime("%d %B %Y")
         years = request.form.get('yearsattribute')
         semester = request.form.get('semesters')
         degreetype = request.form.get('degreetypes')
@@ -142,7 +151,6 @@ def confirmationofunconditionaladmission():
                         degreetype = 'B.Sc.'
                     else:
                         degreetype = 'M.Sc.'
-                    print(degreetype)
                     text = text.replace('type', degreetype)
                     inline[i].text = text
         doc.save('output.docx')
@@ -156,7 +164,7 @@ def extensionletter():
         return render_template('extensionletter.html')
     else:
         name = request.form.get('name') + " " + request.form.get('surname')
-        date = today.strftime("%d %B %Y")
+        date = time.strftime("%d %B %Y")
         years = request.form.get('yearsattr')
         semester = request.form.get('semesters')
         applicationnum = request.form.get('appnum')
@@ -164,8 +172,8 @@ def extensionletter():
             inline = p.runs
             for i in range(len(inline)):
                 text = inline[i].text
-                if 'nameattr' in text:
-                    text = text.replace('nameattr', name)
+                if 'nametag' in text:
+                    text = text.replace('nametag', name)
                     inline[i].text = text
                 if 'dateattribute' in text:
                     text = text.replace('dateattribute', date)
@@ -197,7 +205,7 @@ def latearrival():
         address1 = request.form.get('address1')
         address2 = request.form.get('address2')
         number_address = request.form.get('numberaddress')
-        date = today.strftime("%d %B %Y")
+        date = time.strftime("%d %B %Y")
         studentid = request.form.get('studentid')
         degreefield = request.form.get('degreefield')
         for p in doc.paragraphs:
@@ -249,7 +257,7 @@ def blockedaccount():
     if request.method == 'GET':
         return render_template('blockedaccount.html')
     else:
-        date = today.strftime("%d %B %Y")
+        date = time.strftime("%d %B %Y")
         years = request.form.get('yearsattr')
         semester = request.form.get('semesters')
         for p in doc.paragraphs:
@@ -286,7 +294,7 @@ def onlinesemesterparticipation():
         name = request.form.get('name') + " " + request.form.get('surname')
         matricnumb = request.form.get('matricnumb')
         numonlinecourse = request.form.get('numonlinecourse')
-        date = today.strftime("%d %B %Y")
+        date = time.strftime("%d %B %Y")
         semester = request.form.get('semesters')
         year = request.form.get('yearsattribute')
         for p in doc.paragraphs:
@@ -327,7 +335,7 @@ def presenceletter():
         return render_template('presenceletter.html')
     else:
         name = request.form.get('name') + " " + request.form.get('surname')
-        date = today.strftime("%d %B %Y")
+        date = time.strftime("%d %B %Y")
         years = request.form.get('yearsattr')
         semester = request.form.get('semesters')
         for p in doc.paragraphs:
@@ -352,12 +360,12 @@ def presenceletter():
 
 @app.route('/proofoflanguagerequirements', methods=['GET', 'POST'])
 def proofoflanguagerequirements():
-    doc = Document('./templates/documents/proofoflanguagerequirements.docx')
+    doc = Document('./templates/documents/presenceletter.docx')
     if request.method == 'GET':
         return render_template('proofoflanguagerequirements.html')
     else:
         name = request.form.get('name') + " " + request.form.get('surname')
-        date = today.strftime("%d %B %Y")
+        date = time.strftime("%d %B %Y")
         years = request.form.get('yearsattr')
         matnum = request.form.get('matnum')
         degreetype = request.form.get('degreetypes')
@@ -388,6 +396,96 @@ def proofoflanguagerequirements():
                     else:
                         degreetype = 'M.Sc.'
                     text = text.replace('tipolaurea', degreetype)
+                    inline[i].text = text
+        doc.save('output.docx')
+        return redirect('/download')
+
+# #Proof of attendance of solely virtual lectures in a semester
+@app.route('/virtuallecturessemester', methods=['GET', 'POST'])
+def virtuallecturessemester():
+    doc = Document('./templates/documents/virtuallecturessemester.docx')
+    if request.method == 'GET':
+        return render_template('virtuallecturessemester.html')
+    else:
+        gender = request.form.get('genderattrs')
+        name = request.form.get('name') + " " + request.form.get('surname')
+        date = time.strftime("%d %B %Y")
+        years = request.form.get('yearsattribute')
+        semester = request.form.get('semesters')
+        for p in doc.paragraphs:
+            inline = p.runs
+            for i in range(len(inline)):
+                text = inline[i].text
+                if 'genderattr' in text:
+                    text = text.replace('genderattr', gender.capitalize())
+                    inline[i].text = text
+                if 'nameattr' in text:
+                    text = text.replace('nameattr', name)
+                    inline[i].text = text
+                if 'dateattribute' in text:
+                    text = text.replace('dateattribute', date)
+                    inline[i].text = text
+                if 'semesterattr' in text:
+                    text = text.replace('semesterattr', semester.capitalize())
+                    inline[i].text = text
+                if 'yearattr' in text:
+                    text = text.replace('yearattr', years)
+                    inline[i].text = text
+        doc.save('output.docx')
+        return redirect('/download')
+
+# #Proof of attendance of solely virtual lectures until entry to germany
+@app.route('/virtuallecturesgermany', methods=['GET', 'POST'])
+def virtuallectures():
+    doc = Document('./templates/documents/virtuallecturesgermany.docx')
+    if request.method == 'GET':
+        return render_template('virtuallecturesgermany.html')
+    else:
+        gender = request.form.get('genderattrs')
+        name = request.form.get('name') + " " + request.form.get('surname')
+        date = time.strftime("%d %B %Y")
+        years = request.form.get('yearsattr')
+        semester = request.form.get('semesters')
+        for p in doc.paragraphs:
+            inline = p.runs
+            for i in range(len(inline)):
+                text = inline[i].text
+                if 'genderattr' in text:
+                    text = text.replace('genderattr', gender.capitalize())
+                    inline[i].text = text
+                if 'nameattr' in text:
+                    text = text.replace('nameattr', name)
+                    inline[i].text = text
+                if 'dateattribute' in text:
+                    text = text.replace('dateattribute', date)
+                    inline[i].text = text
+                if 'semesterattr' in text:
+                    text = text.replace('semesterattr', semester.capitalize())
+                    inline[i].text = text
+                if 'yearsattr' in text:
+                    text = text.replace('yearsattr', years)
+                    inline[i].text = text
+        doc.save('output.docx')
+        return redirect('/download')
+
+# #Estimated Living Expenses
+@app.route('/estimatedlivingexpenses', methods=['GET', 'POST'])
+def estimatedlivingexpenses():
+    doc = Document('./templates/documents/estimatedlivingexpenses.docx')
+    if request.method == 'GET':
+        return render_template('estimatedlivingexpenses.html')
+    else:
+        name = request.form.get('name') + " " + request.form.get('surname')
+        date = time.strftime("%d %B %Y")
+        for p in doc.paragraphs:
+            inline = p.runs
+            for i in range(len(inline)):
+                text = inline[i].text
+                if 'nameattribute' in text:
+                    text = text.replace('nameattribute', name)
+                    inline[i].text = text
+                if 'dateattribute' in text:
+                    text = text.replace('dateattribute', date)
                     inline[i].text = text
         doc.save('output.docx')
         return redirect('/download')

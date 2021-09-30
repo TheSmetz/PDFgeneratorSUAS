@@ -6,14 +6,15 @@
     <link rel="stylesheet" media="screen" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
     <meta charset="UTF-8">
-    <title>SUAS - Extension Letter Document</title>
+    <title>SUAS - Proof of attendance of solely virtual lectures in a semester</title>
 </head>
 
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="/">
             <div class="logo">
-                <img src="/static/logoTitle.svg" width="232" height="49" class="d-inline-block align-top" alt=""> Schmalkalden University - Auto-generation SUAS documents
+                <img src="/static/logoTitle.svg" width="232" height="49" class="d-inline-block align-top" alt="">
+                Schmalkalden University - Auto-generation SUAS documents
             </div>
         </a>
 
@@ -22,45 +23,39 @@
             </div>
         </div>
     </nav>
-    <h4>SUAS - Extension Letter Document</h4>
+    <h4>SUAS - Proof of attendance of solely virtual lectures in a semester</h4>
     <h5>Please provide the following information correctly in order to generate the document which you need:</h5>
     <div class="container"><br>
         <div class="row align-items-center justify-content-center">
             <div class="col-md-4">
-                <form action="/extensionletter" method="post">
-                    <label for="appnum">Application Number: </label><br>
-                    <input type="number" name="appnum" value="" required><br>
-
+                <form action="/virtuallecturessemester" method="post">
+                    <label for="gender"> Gender:</label>
+                    <select id="genderattr" name="genderattrs">
+                        <option value="mr">Mr.</option>
+                        <option value="ms">Ms.</option>
+                    </select> <br>
                     <label for="name">Name: </label><br>
                     <input type="text" name="name" value="" required><br>
-
                     <label for="surname">Surname: </label><br>
                     <input type="text" name="surname" value="" required> <br>
 
-                    <label for="semester">Semester:</label><br>
+                    <label for="semestera">Semester:</label><br>
                     <select id="semestera" name="semesters">
                         <option value="winter">Winter</option>
                         <option value="summer">Summer</option>
                     </select><br>
 
-                    <label for="yearsattr">Years:<br> (e.g. 2021/22)</label><br>
-                    <input type="text" name="yearsattr" value="" required> <br><br>
-
+                    <label for="yearsattribute">Enter the year: (e.g. 2021)</label><br>
+                    <input type="text" name="yearsattribute" value="" required> <br><br>
                     <div class="wrapper">
                         <input type="submit" value="Submit" class="btn btn-success">
                     </div>
+                </form>
             </div>
-            </form>
             <br>
         </div>
         <br>
     </div>
-    </div>
 </body>
 
 </html>
-
-<!-- appnum
-Name attribute (name + surname)
-semesterattribute (Winter / Summer)
-yearsattr (2020/21) -->
