@@ -14,7 +14,7 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="/">
             <div class="logo">
-                <img src="/static/logoTitle.svg" width="232" height="49" class="d-inline-block align-top" alt=""> Schmalkalden University - Auto-generation SUAS documents
+                <img src="/static/logoTitle.svg" width="232" height="49" class="d-inline-block align-top" alt="">
             </div>
         </a>
 
@@ -23,41 +23,44 @@
             </div>
         </div>
     </nav>
-    <h4>SUAS - Proof of participation in english courses</h4>
-    <h5>Please provide the following information correctly in order to generate the document which you need:</h5>
-    <div class="container"><br>
-        <div class="row align-items-center justify-content-center">
-            <div class="col-md-4">
-                <form action="/proofofparticipationinenglishcourses" method="post">
-                    <label for="gender"> Gender:</label>
-                    <select id="genderattr" name="genderattrs">
-                        <option value="mr">Mr.</option>
-                        <option value="ms">Ms.</option>
-                    </select> <br>
-                    <label for="name">Name: </label><br>
-                    <input type="text" name="name" value="" required><br>
-                    <label for="surname">Surname: </label><br>
-                    <input type="text" name="surname" value="" required> <br>
+    <div class="container">
+        <h5>SUAS - Proof of participation in english courses</h5>
+        <h5>Please provide the following information correctly in order to generate the document which you need:</h5>
+        <div class="container"><br>
+            <div class="row align-items-center justify-content-center">
+                <div class="col-md-4">
+                    <form action="/proofofparticipationinenglishcourses" method="post">
+                        <label for="gender"> Gender:</label>
+                        <select id="genderattr" name="genderattrs">
+                            <option value="mr">Mr.</option>
+                            <option value="ms">Ms.</option>
+                        </select> <br>
+                        <label for="name">Name: </label><br>
+                        <input type="text" name="name" value="" required><br>
+                        <label for="surname">Surname: </label><br>
+                        <input type="text" name="surname" value="" required> <br>
 
-                    <label for="idstudentattribute">Student ID: </label><br>
-                    <input type="number" name="idstudentattribute" value="" required> <br>
-                    <label for="semestera">Semester:</label><br>
-                    <select id="semestera" name="semesters">
-                        <option value="winter">Winter</option>
-                        <option value="summer">Summer</option>
-                    </select><br>
+                        <label for="idstudentattribute">Student ID: </label><br>
+                        <input type="number" name="idstudentattribute" value="" required> <br>
+                        <label for="semestera">Semester:</label><br>
+                        <select id="semestera" name="semesters">
+                            <option value="winter">Winter</option>
+                            <option value="summer">Summer</option>
+                        </select><br>
 
-                    <label for="yearsattribute">Years: (e.g. 2021/22)</label><br>
-                    <input type="text" name="yearsattribute" value="" required> <br><br>
-                    <div class="wrapper">
-                        <input type="submit" value="Submit" class="btn btn-success">
-                    </div>
-                </form>
+                        <label for="yearsattribute">Years: (e.g. 2021/22)</label><br>
+                        <input type="text" name="yearsattribute" value="" required> <br><br>
+                        <div class="wrapper">
+                            <input type="submit" value="Submit" class="btn btn-success">
+                        </div>
+                    </form>
+                </div>
+                <br>
             </div>
             <br>
         </div>
-        <br>
     </div>
+
 </body>
 
 </html>

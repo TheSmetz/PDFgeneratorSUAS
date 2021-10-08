@@ -3,6 +3,7 @@ from docx import Document
 import time
 
 # TODO: MODIFY ALL THE DOCUMENTS ADDING THE DATA (DEAR NAME SURNAME)
+# TODO: ADAPT IT FOR SMARTPHONES
 
 app = Flask(__name__)
 
