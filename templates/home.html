@@ -1,5 +1,5 @@
-<html>
-
+<!DOCTYPE html>
+<html lang="en">
 <head>
     <title>Auto-generation SUAS documents</title>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/home.css') }}">
@@ -7,34 +7,15 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
-
 </head>
 
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="">
             <div class="logo">
-                <img src="/static/logoTitle.svg" width="232" height="49" class="d-inline-block align-top" alt=""> 
+                <img src="/static/logoTitle.svg" width="232" height="49" class="d-inline-block align-top" alt="">
             </div>
         </a>
-        <!-- <div class="collapse navbar-collapse" id="navbarNav">
-            <div class="menu">
-                <ul class="navbar-nav">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Features</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Pricing</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link disabled" href="#">Disabled</a>
-                    </li>
-                </ul>
-            </div>
-        </div> -->
     </nav>
 
     <div class="container"><br>
@@ -61,7 +42,6 @@
                         <option value="virtuallecturesgermany">Solely virtual lectures in Germany</option>
                         <option value="virtuallecturessemester">Solely virtual lectures in a semester</option>
                         <option value="estimatedlivingexpenses">Estimated Living Expenses</option>
-
                     </select> <br> <br>
                     <div class="wrapper">
                         <input type="submit" value="Submit" class="btn btn-success">

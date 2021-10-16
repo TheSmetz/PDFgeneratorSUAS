@@ -2,11 +2,7 @@ from flask import Flask, render_template, send_file, redirect, request
 from docx import Document
 import time
 
-# TODO: MODIFY ALL THE DOCUMENTS ADDING THE DATA (DEAR NAME SURNAME)
-# TODO: ADAPT IT FOR SMARTPHONES
-
 app = Flask(__name__)
-
 
 @app.route('/')
 def home():
@@ -343,8 +339,8 @@ def presenceletter():
                 if 'dateattribute' in text:
                     text = text.replace('dateattribute', date)
                     inline[i].text = text
-                if 'semesterattribute' in text:
-                    text = text.replace('semesterattribute', semester.capitalize())
+                if 'semesterattr' in text:
+                    text = text.replace('semesterattr', semester.capitalize())
                     inline[i].text = text
                 if 'yearsattr' in text:
                     text = text.replace('yearsattr', years)

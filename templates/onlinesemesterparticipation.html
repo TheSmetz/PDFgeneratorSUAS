@@ -1,69 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
+    <title>Auto-generation SUAS documents</title>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/home.css') }}">
     <link rel="stylesheet" media="screen" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
-    <meta charset="UTF-8">
-    <title>SUAS - Online Semester Participation Document</title>
 </head>
 
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="/">
+        <a class="navbar-brand" href="">
             <div class="logo">
-                <img src="/static/logoTitle.svg" width="232" height="49" class="d-inline-block align-top" alt=""> Schmalkalden University - Auto-generation SUAS documents
+                <img src="/static/logoTitle.svg" width="232" height="49" class="d-inline-block align-top" alt="">
             </div>
         </a>
-
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <div class="menu">
-            </div>
-        </div>
     </nav>
-    <h4>SUAS - Online Semester Participation Document</h4>
-    <h5>Please provide the following information correctly in order to generate the document which you need:</h5>
+
     <div class="container"><br>
-        <div class="row align-items-center justify-content-center">
-            <div class="col-md-4">
-                <form action="/onlinesemesterparticipation" method="post">
-                    <label for="gender">Choose your gender:</label>
-                    <select id="genderattr" name="genderattrs">
-                            <option value="mr">Mr.</option>
-                            <option value="ms">Ms.</option>
-                        </select><br>
-                    <label for="name">Name: </label><br>
-                    <input type="text" name="name" value="" required><br>
-
-                    <label for="surname">Surname: </label><br>
-                    <input type="text" name="surname" value="" required> <br>
-
-                    <label for="matricnumb"> Matriculation Number: </label><br>
-                    <input type="text" name="matricnumb" value="" required><br>
-
-                    <label for="numonlinecourse"> Number Online Course: </label><br>
-                    <input type="text" name="numonlinecourse" value="" required> <br>
-
-                    <label for="semester">Semester:</label><br>
-                    <select id="semestera" name="semesters">
-                            <option value="winter">Winter</option>
-                            <option value="summer">Summer</option>
-                        </select><br>
-
-                    <label for="yearsattribute">Year: <br>(e.g. 2021)</label><br>
-                    <input type="text" name="yearsattribute" value="" required> <br><br>
-                    <div class="wrapper">
-                        <input type="submit" value="Submit" class="btn btn-success">
-                    </div>
-                </form>
-            </div>
-            <br>
+        <h4>SUAS - Online Semester Participation Document</h4>
+        <h5>Please provide the following information correctly in order to generate the document which you need:</h5>
         </div>
-        <br>
-    </div>
-    </div>
+
+            <div class="container"><br>
+                <div class="row align-items-center justify-content-center">
+                    <div class="col-md-4">
+                        <form action="/onlinesemesterparticipation" method="post">
+                            <label for="gender">Choose your gender:</label>
+                            <select id="genderattr" name="genderattrs">
+                                    <option value="mr">Mr.</option>
+                                    <option value="ms">Ms.</option>
+                                </select><br>
+                            <label for="name">Name: </label><br>
+                            <input type="text" name="name" value="" required><br>
+        
+                            <label for="surname">Surname: </label><br>
+                            <input type="text" name="surname" value="" required> <br>
+        
+                            <label for="matricnumb"> Matriculation Number: </label><br>
+                            <input type="text" name="matricnumb" value="" required><br>
+        
+                            <label for="numonlinecourse"> Number Online Course: </label><br>
+                            <input type="text" name="numonlinecourse" value="" required> <br>
+        
+                            <label for="semester">Semester:</label><br>
+                            <select id="semestera" name="semesters">
+                                    <option value="winter">Winter</option>
+                                    <option value="summer">Summer</option>
+                                </select><br>
+        
+                            <label for="yearsattribute">Year: <br>(e.g. 2021)</label><br>
+                            <input type="text" name="yearsattribute" value="" required> <br><br>
+                            <div class="wrapper">
+                                <input type="submit" value="Submit" class="btn btn-success">
+                            </div>
+                        </form>
+                    </div>
+                    <br>
+                </div>
+                <br>
+            </div>
 </body>
 
 </html>
